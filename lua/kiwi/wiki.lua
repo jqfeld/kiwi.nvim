@@ -21,7 +21,7 @@ M.open_wiki_index = function(name)
   local opts = { noremap = true, silent = true, nowait = true }
   vim.api.nvim_buf_set_keymap(buffer_number, "v", "<CR>", ":'<,'>lua require(\"kiwi\").create_or_open_wiki_file()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "<CR>", ":lua require(\"kiwi\").open_link()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", ":let @/=\"\\\\[.\\\\{-}\\\\]\"<CR>nl", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", [[:let @/="\\[.\\{-}\\](.\\{-})"<CR>nl]], opts)
 end
 
 -- Create a new Wiki entry in Journal folder on highlighting word and pressing <CR>
@@ -40,7 +40,7 @@ M.create_or_open_wiki_file = function()
   local opts = { noremap = true, silent = true, nowait = true }
   vim.api.nvim_buf_set_keymap(buffer_number, "v", "<CR>", ":'<,'>lua require(\"kiwi\").create_or_open_wiki_file()<CR>", opts)
   vim.api.nvim_buf_set_keymap(buffer_number, "n", "<CR>", ":lua require(\"kiwi\").open_link()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", ":let @/=\"\\\\[.\\\\{-}\\\\]\"<CR>nl", opts)
+  vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", [[:let @/="\\[.\\{-}\\](.\\{-})"<CR>nl]], opts)
 end
 
 -- Open a link under the cursor
