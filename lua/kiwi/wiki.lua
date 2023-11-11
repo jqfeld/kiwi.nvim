@@ -58,7 +58,7 @@ M.open_link = function()
       local opts = { noremap = true, silent = true, nowait = true }
       vim.api.nvim_buf_set_keymap(buffer_number, "v", "<CR>", ":'<,'>lua require(\"kiwi\").create_or_open_wiki_file()<CR>", opts)
       vim.api.nvim_buf_set_keymap(buffer_number, "n", "<CR>", ":lua require(\"kiwi\").open_link()<CR>", opts)
-      vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", ":let @/=\"\\\\[.\\\\{-}\\\\]\"<CR>nl", opts)
+      vim.api.nvim_buf_set_keymap(buffer_number, "n", "<Tab>", [[:let @/="\\[.\\{-}\\](.\\{-})"<CR>nl]], opts)
     end
   else
     vim.print("E: Cannot find file")
